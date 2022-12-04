@@ -18,6 +18,9 @@ resumo de como fizemos
 | F1_Score  | 0.4440 | 0.3230 | 0 | 0 | 0 |
 | Accuracy  | 0.4458 | 0.3583 | 0 | 0 | 0 |
 
+With the present results, we can cleary see that BLA BLA Classifier achieved the best values of precision, recall, F1-score and accuracy in the test set created in the notebook used for this project.
+This result was expected since blablablabla
+
 ## YouTube Video:
 Video explaning the algorithms used this project, as well as an evaluation of the solutions obtained:
 add link - unlisted video
