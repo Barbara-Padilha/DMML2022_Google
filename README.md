@@ -13,10 +13,10 @@ resumo de como fizemos
 ## Results:
 |  | Logistic Regression | KNearestNeighbors | Decision Trees | Random Forest | Neural Networks |
 | ------------- | ------------- | ------------- |------------- |------------- |------------- |
-| Precision | 0 | 0 | 0 | 0 | 0 |
-| Recall  | 0 | 0 | 0 | 0 | 0 |
-| F1_Score  | 0 | 0 | 0 | 0 | 0 |
-| Accuracy  | 0 | 0 | 0 | 0 | 0 |
+| Precision | 0.4444 | 0 | 0 | 0 | 0 |
+| Recall  | 0.4458 | 0 | 0 | 0 | 0 |
+| F1_Score  | 0.444 | 0 | 0 | 0 | 0 |
+| Accuracy  | 0.4458 | 0 | 0 | 0 | 0 |
 
 ## Explanation video:
 link do youtube (video unlisted)
