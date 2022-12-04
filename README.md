@@ -18,5 +18,6 @@ resumo de como fizemos
 | F1_Score  | 0.4440 | 0.3230 | 0 | 0 | 0 |
 | Accuracy  | 0.4458 | 0.3583 | 0 | 0 | 0 |
 
-## Explanation video:
-link do youtube (video unlisted)
+## YouTube Video:
+Video explaning the algorithms used this project, as well as an evaluation of the solutions obtained:
+add link - unlisted video
