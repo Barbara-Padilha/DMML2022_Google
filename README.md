@@ -8,8 +8,8 @@
 * [YouTube Video](https://github.com/Barbara-Padilha/DMML2022_Google/edit/main/README.md#youtube-video)
 
 ## Participants
- * Bárbara Maltoni Padilha
- * João Victor Velanes de Faria Ribeira da Silva
+ * Bárbara Maltoni Padilha, no.1252739
+ * João Victor Velanes de Faria Ribeira da Silva, no.
  
 ## Project Objectives
 descrição do projeto
