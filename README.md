@@ -1,16 +1,23 @@
 # DMML2022_Google
 
-## Participants:
+## Summary
+* Participants
+* Project Objectives
+* Approach
+* Results
+* YouTube Video
+
+## Participants
  * Bárbara Maltoni Padilha
  * João Victor Velanes de Faria Ribeira da Silva
  
-## Project objectives:
+## Project Objectives
 descrição do projeto
 
-## Approach used:
+## Approach
 resumo de como fizemos
 
-## Results:
+## Results
 |  | Logistic Regression | KNearestNeighbors | Decision Tree | Random Forest | Neural Networks |
 | ------------- | ------------- | ------------- |------------- |------------- |------------- |
 | Precision | 0.4340 | 0.3733	 | 0.3153 | 0.3968	 | 0 |
@@ -22,7 +29,7 @@ With the present results, we can cleary see that BLA BLA Classiffier achieved th
 
 This result was expected since blablablabla
 
-## YouTube Video:
+## YouTube Video
 Video explaning the algorithms used this project, as well as an evaluation of the solutions obtained:
 
 add link - unlisted video
