@@ -5,7 +5,7 @@
 * [Project Objectives](https://github.com/Barbara-Padilha/DMML2022_Google/edit/main/README.md#project-objectives)
 * [Approach](https://github.com/Barbara-Padilha/DMML2022_Google/edit/main/README.md#approach)
 * [Results](https://github.com/Barbara-Padilha/DMML2022_Google/edit/main/README.md#results)
-* [YouTube Video](https://github.com/Barbara-Padilha/DMML2022_Google/edit/main/README.md#youtube-video)
+* [YouTube Video](https://github.com/Barbara-Padilha/DMML2022_Google#youtube-video)
 
 ## Participants
  * Bárbara Maltoni Padilha
