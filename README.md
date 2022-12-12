@@ -26,7 +26,7 @@ resumo de como fizemos
 | ------------- | ------------- | ------------- |------------- |------------- |------------- |
 | Precision | 0.4340 | 0.3733	 | 0.3153 | 0.3968	 | 0 |
 | Recall  | 0.4354 | 0.3635	 | 0.3146 | 0.3938	| 0 |
-| F1_Score  | 0.4337 | 0.3419 | 0.3144	 | 0.3888	| 0 |
+| F1-Score  | 0.4337 | 0.3419 | 0.3144	 | 0.3888	| 0 |
 | Accuracy  | 0.4354 | 0.3635	 | 0.3146	 | 0.3938 | 0 |
 
 With the present results, we can cleary see that Neural Networks Classiffier achieved the best values of precision, recall, F1-score and accuracy in the test set created in the notebook used for this project.
