@@ -16,7 +16,7 @@ In this project, we had as a goal the classification of texts in French accordin
 
 In order to do so, we should use some of the methods tought during class, such as `Logistic Regression`, `K-Nearest Neighbors`, `Decision Trees` and `Random Forest`, along with the TF-IDF Vectorizer, to analyse sentences in a train set defined on the `training_data.csv` presented in the data file on this GitHub, without any data cleaning. After training our base models, we have to run our algorithms on the `unlabelled_test_data.csv` to generate the classification of the french sentences for submission. 
 
-After this firs step, we need to utilize a different classification method and text analysis techniques to try to obtain the best possible score for our text classification. 
+After this first step, we need to utilize a different classification method and text analysis techniques to try to obtain the best possible score for our text classification. 
 
 ## Approach
 resumo de como fizemos
