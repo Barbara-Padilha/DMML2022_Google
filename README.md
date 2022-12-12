@@ -3,7 +3,7 @@
 ## Summary
 * [Participants](https://github.com/Barbara-Padilha/DMML2022_Google#participants)
 * [Project Objectives](https://github.com/Barbara-Padilha/DMML2022_Google#project-objectives)
-* [Approach]https://github.com/Barbara-Padilha/DMML2022_Google#approach)
+* [Approach](https://github.com/Barbara-Padilha/DMML2022_Google#approach)
 * [Results](https://github.com/Barbara-Padilha/DMML2022_Google#results)
 * [YouTube Video](https://github.com/Barbara-Padilha/DMML2022_Google#youtube-video)
 
@@ -12,7 +12,7 @@
  * João Victor Velanes de Faria Ribeira da Silva
  
 ## Project Objectives
-descrição do projeto
+In this project, we had as a goal the classification of texts in French according to the level of proficiency it requires for a non-native french speaker to understand it (`A1`,`A2`,`B1`,`B2`,`C1` and `C2`).
 
 ## Approach
 resumo de como fizemos
