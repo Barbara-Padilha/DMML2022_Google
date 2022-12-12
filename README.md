@@ -1,10 +1,10 @@
 # DMML2022_Google
 
 ## Summary
-* [Participants](https://github.com/Barbara-Padilha/DMML2022_Google/edit/main/README.md#participants)
-* [Project Objectives](https://github.com/Barbara-Padilha/DMML2022_Google/edit/main/README.md#project-objectives)
-* [Approach](https://github.com/Barbara-Padilha/DMML2022_Google/edit/main/README.md#approach)
-* [Results](https://github.com/Barbara-Padilha/DMML2022_Google/edit/main/README.md#results)
+* [Participants](https://github.com/Barbara-Padilha/DMML2022_Google#participants)
+* [Project Objectives](https://github.com/Barbara-Padilha/DMML2022_Google#project-objectives)
+* [Approach]https://github.com/Barbara-Padilha/DMML2022_Google#approach)
+* [Results](https://github.com/Barbara-Padilha/DMML2022_Google#results)
 * [YouTube Video](https://github.com/Barbara-Padilha/DMML2022_Google#youtube-video)
 
 ## Participants
@@ -25,9 +25,9 @@ resumo de como fizemos
 | F1_Score  | 0.4337 | 0.3419 | 0.3144	 | 0.3888	| 0 |
 | Accuracy  | 0.4354 | 0.3635	 | 0.3146	 | 0.3938 | 0 |
 
-With the present results, we can cleary see that BLA BLA Classiffier achieved the best values of precision, recall, F1-score and accuracy in the test set created in the notebook used for this project.
+With the present results, we can cleary see that Neural Networks Classiffier achieved the best values of precision, recall, F1-score and accuracy in the test set created in the notebook used for this project.
 
-This result was expected since blablablabla
+This result was expected since, in order to use this classifier, we had to clean our data, work on tokenizing our text and also apply text embeding to achieve better quality in our classification. Besides that, we also used a different vectorizer, that works better for the French language.
 
 ## YouTube Video
 Video explaning the algorithms used this project, as well as an evaluation of the solutions obtained:
