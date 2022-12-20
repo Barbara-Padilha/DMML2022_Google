@@ -222,9 +222,13 @@ pipelinedtc = Pipeline([("tokenizer",tfidf),
 
 ### Random Forest
 
+When we worked on our `Random Forest` classification, we followe the same patterns as before, beginning by importing the packages needed, which now include:
+
 ```ruby
 from sklearn.ensemble import RandomForestClassifier
 ```
+
+With the packages imported, we create our `pipeline` using the `Random Forest Classifier` with a random state of 0 as our classifier, and we still use the `TF-IDF Vectorizer`.
 
 ```ruby
 tfidf = TfidfVectorizer(sublinear_tf=True, min_df=5, norm='l2', encoding='latin-1', ngram_range=(1, 2))
@@ -234,6 +238,7 @@ pipe = Pipeline([("vectorizer", tfidf),
                  ("classifier", rf)])
 ```
 
+Once the prediction is made on our `x_test` we obtain the predicted values of `y` and we can then use the function `evaluate`, defined previously, to compared the obtained predictions to the actual `y_test` values. With this we obtain our accuracy, precision, recall, F1-score and confusion matrix, the only step to be taken after this is running our model on the
 
 ### Neural Networks
 
