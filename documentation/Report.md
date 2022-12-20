@@ -238,7 +238,7 @@ pipe = Pipeline([("vectorizer", tfidf),
                  ("classifier", rf)])
 ```
 
-Once the prediction is made on our `x_test` we obtain the predicted values of `y` and we can then use the function `evaluate`, defined previously, to compared the obtained predictions to the actual `y_test` values. With this we obtain our accuracy, precision, recall, F1-score and confusion matrix, the only step to be taken after this is running our model on the
+Once the prediction is made on our `x_test` we obtain the predicted values of `y` and we can then use the function `evaluate`, defined previously, to compared the obtained predictions to the actual `y_test` values. With this we obtain our accuracy, precision, recall, F1-score and confusion matrix, the only step to be taken after this is running our model on the `unlabelled_test_data.csv` in order to create a submittable .csv file.
 
 ### Neural Networks
 
