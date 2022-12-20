@@ -22,20 +22,28 @@ Once we knew the value of our baseline, we continue on to create our models. The
 
 For all the cases mentioned above, we begin our coding by downloading the necessary packages and language sets to use desired classification method and the necessary text analysis. Using the exemple of our Logistic Regression Classifier, the packages downloaded to read our data and create our model were:
 
-# Install and update spaCy
-!pip install -U spacy
-!python -m spacy download fr
+> # Install and update spaCy
+> !pip install -U spacy
+> !python -m spacy download fr
+>
+> # Import necessary packages
+> import spacy
+> from spacy import displacy
+> from sklearn.feature_extraction.text import TfidfVectorizer
+>
+> from sklearn.pipeline import Pipeline
+> import string
+> from spacy.lang.fr.stop_words import STOP_WORDS as fr_stop
+> from spacy.lang.fr import French
+> from sklearn.linear_model import LogisticRegression
+> from sklearn.metrics import confusion_matrix, accuracy_score, precision_score, recall_score, f1_score
 
-# Import necessary packages
-import spacy
-from spacy import displacy
-from sklearn.feature_extraction.text import TfidfVectorizer
+After this crutial step, we begin to code our model by creating the Pipeline that we will to fit our train data and classify our sentences, for the Logistic Regression, we use:
 
-from sklearn.pipeline import Pipeline
-import string
-from spacy.lang.fr.stop_words import STOP_WORDS as fr_stop
-from spacy.lang.fr import French
-from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import confusion_matrix, accuracy_score, precision_score, recall_score, f1_score
+tfidf = TfidfVectorizer(sublinear_tf=True, min_df=5, norm='l2', encoding='latin-1', ngram_range=(1, 2))
+lr = LogisticRegression(solver='lbfgs', max_iter=10000, random_state=0)
 
+pipe = Pipeline([('vectorizer', tfidf),
+                 ('classifier', lr)])
 
+It is important to note that the random state used for the Logistic Regression was set to 0, and that our pipeline also includes the vectorizer chosen for this step of the project. For the other simple classification, we will use similar programns.
