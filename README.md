@@ -40,3 +40,7 @@ Considering this results for the `training_data.csv`, and the fact that we took 
 Video explaning the algorithms used this project, as well as an evaluation of the solutions obtained:
 
 [nome do video](link do unlisted video)
+
+<div align="center">
+  <a href="https://www.youtube.com/watch?v=VIDEO ID"><img src="https://img.youtube.com/vi/VIDEO ID/0.jpg" alt="VIDEO TITLE"></a>
+</div>
