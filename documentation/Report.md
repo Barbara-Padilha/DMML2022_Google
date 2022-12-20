@@ -6,7 +6,7 @@ For this final project of the Data Mining and Machine Learning course of the aut
 ## First steps
 In order to do so, we begin by downlading all the necessary data and material to build and train our models. The data used was found on the Kaggle Competition page, and is separated in `training_data.csv`, `unlabelled_test_data.csv` and  `sample_submission.csv`. These files contain the training set, in which we will build and train our models after a split between test and train data, the actual test data that we wish to classify after our models are complete and an exemple of how our results on the test data must be submitted to Kaggle, respectively.
 
-With all the data needed, the first step we took was to download the basic packs needed for our analysis during the project, those being:
+With all the data needed, the next step we took was to download the basic packs needed for our analysis during the project, those being:
 
 ```ruby
  import pandas as pd
@@ -18,9 +18,9 @@ With all the data needed, the first step we took was to download the basic packs
 ```
 
 ## Checking the baseline
-With packages installed, we move on to check the value of our baseline in the `training_data.csv` in order to have a better understanding of our data. For this, we begin by splitting our datas into `x_train`, `x_test`, `y_train` and `y_test`, once that was done we used two different methods to calculate the baseline. 
+With the packages installed, we move on to check the value of our baseline in the `training_data.csv` in order to have a better understanding of our data. For this, we begin by splitting our datas into `x_train`, `x_test`, `y_train` and `y_test`, being the `x` values the sentences in French and the `y` values their difficulty. Once that was done we used two different methods to calculate the baseline. 
 
-The first method used, was the `Dummy Classifier`, which we set to use the most frequent values, fit on our y_train set and scored on the y_test, with this we obtained a baseline of 0.1677. The second method was used to confirm the value found previously, and in it we used the `.value_counts()` command to know the values of each difficulty in the whole dataframe used and which had a bigger frequency, once we knew that, we divided the value of the most frequent difficulty by the total amount and obtained a value of 0.1694 for our baseline. 
+The first method used, was with the `Dummy Classifier`, which we set to use the most frequent values, fit on our `y_train` set and score on the `y_test`, with this we obtained a baseline of 0.1677. The second method was used to confirm the value found previously, and in it we used the `.value_counts()` command to know the values of each difficulty in the whole dataframe used and which had a bigger frequency, once we knew that, we divided the value of the most frequent difficulty by the total amount and obtained a value of 0.1694 for our baseline. 
 
 For all of this process we needed to import from sklearn:
 
@@ -30,7 +30,7 @@ For all of this process we needed to import from sklearn:
 ```
 
 ## Creating the models
-Once we knew the value of our baseline, we continue on to create our models. The models used to start our classification during this project were `Logistic Regression`, `K-Nearest Neighbors`, `Decision Tree` and `Random Forest`, when it comes for the text analysis, we did not use any sort of data cleaning or tokenization for the models created, we simply used the `TF-IDF Vectorizer`. After doing this base work to have a better understanding of our data, we chose to use Neural Networks as our extra technique for classification and with it we also applied various techniques of text analysis in order to try to improve our results.
+Once we knew the value of our baseline, we continue on to create our models. The models used to start our classification during this project were `Logistic Regression`, `K-Nearest Neighbors`, `Decision Tree` and `Random Forest`, when it comes for the text analysis, we did not use any sort of data cleaning or tokenization for the models created, we simply used the `TF-IDF Vectorizer`. After doing this base work to have a better understanding of our data, we chose to use `Neural Networks` as our extra technique for classification and with it we also applied various techniques of text analysis in order to try to improve our results.
 
 ### Logistic Regression
 For all the cases mentioned above, we begin our coding by downloading the necessary packages and language sets to use desired classification method and the necessary text analysis. Using the exemple of our `Logistic Regression Classifier`, the packages downloaded to read our data and create our model were:
@@ -53,7 +53,7 @@ For all the cases mentioned above, we begin our coding by downloading the necess
  from sklearn.metrics import confusion_matrix, accuracy_score, precision_score, recall_score, f1_score
 ```
 
-After this crutial step, we begin to code our model by creating the `Pipeline` that we will to fit our train data and classify our sentences, for the `Logistic Regression`, we use:
+After this crutial step, we begin to code our model by creating the `pipeline` that we will to fit our train data and classify our sentences, for the `Logistic Regression`, we use:
 
 ```ruby
  tfidf = TfidfVectorizer(sublinear_tf=True, min_df=5, norm='l2', encoding='latin-1', ngram_range=(1, 2))
@@ -63,9 +63,9 @@ After this crutial step, we begin to code our model by creating the `Pipeline` t
                   ('classifier', lr)])
 ```
 
-It is important to note that the random state used for the Logistic Regression was set to 0, and that our pipeline also includes the vectorizer chosen for this step of the project.
+It is important to note that the random state used for the `Logistic Regression` was set to 0, and that our pipeline also includes the vectorizer chosen for this step of the project.
 
-Once our `Pipeline` is created and we can predict the values of `y` on `x_test`, we use the function we defined as `evaluate` to calculate our test accuracy, precision, recall, F1-score and to form our confusion matrix. This function was used for all our base classification methods and was defined as follows:
+Once our `pipeline` is created and we can predict the values of `y` on `x_test`, we use the function we defined as `evaluate` to calculate our test accuracy, precision, recall, F1-score and to form our confusion matrix. This function was used for all our base classification methods and was defined as follows:
 
 ```ruby
 def evaluate(true, pred):
@@ -88,13 +88,18 @@ The next step required for our analysis with the `Logistic Regression` model, wa
 
 > Le débat porte plutôt sur l'utilité d'une telle mesure.
 
-To finish all the analysis required for the `Logistic Regression`, we implemented the created model in our `unlabelled_test_data.csv` to generate a a csv file in the same format as `sample_submission.csv`, for this we defined our `x` as the sentence column of our dataframe and used our `pipeline` to predict the values of `y`.
+To finish all the analysis required for the `Logistic Regression`, we implemented the created model in our `unlabelled_test_data.csv` to generate a .csv file in the same format as `sample_submission.csv`, for this we defined our `x` as the sentence column of our dataframe and used our `pipeline` to predict the values of `y`.
 
 ### K-Nearest Neighbors
+
+Moving on to the next classification model, the beginning of our `K-Nearest Neighbor` classification is extremely similar to the `Logistic Regression`, with little differences such as the need to import the following packs, besides the ones mentioned before:
+
 ```ruby
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.model_selection import GridSearchCV
 ```
+
+Once all the necessary packages were imported, we follow to create our `pipeline` in the same form as we did previously, with the exception that for our `KNN` classification we do not set a random state, and we will begin our analysis without setting any parameters, so the code goes as show below
 
 ```ruby
 tfidf = TfidfVectorizer(sublinear_tf=True, min_df=5, norm='l2', encoding='latin-1', ngram_range=(1, 2))
@@ -103,6 +108,8 @@ knn = KNeighborsClassifier()
 pipe = Pipeline([('vectorizer',tfidf),
                  ('classifier', knn)])
 ```                 
+
+After running our `pipeline` and obtaining the predictions of `y`, we run our `evaluate` function and notice that the results for accuracy, precision, recall and F1-score are low, and in order to improve those results, we tune our hyperparameters using `GridSearchCV()` to find the best possible parameters to run our classification with. In order to do so, we apply the following code:
 
 ```ruby
 k_range = list(range(1,31,2))
@@ -120,11 +127,12 @@ p = best_params['classifier__p']
 w = best_params['classifier__weights']
 ```
 
-Fitting 5 folds for each of 60 candidates, totalling 300 fits
-By tuning the hyper parameters, we find that the best parameters for our KNN classification are: 
- n_neighbors: 29 
- p: 2 
- weights: distance
+By tuning the hyperparameters, we find that the best parameters for our `KNN` classification are: 
+ - n_neighbors: 29 
+ - p: 2 
+ - weights: distance
+
+Inserting those values in our classifier, we create a new pipeline, `pipekg` as shown on the code below, to improve our evaluation results.
 
 ```ruby
 knn_gs = KNeighborsClassifier(n_neighbors=k, p=p, weights=w)
@@ -133,17 +141,26 @@ pipekg = Pipeline([('vectorizer',tfidf),
                    ('classifier', knn_gs)])
 ```
 
+To finish our analysis with the `K-Nearest Neighbors Classifier` we once again use the function `evaluate` to obtain the necessary information, and afterwards we apply our model to the `unlabelled_test_data.csv`, generating another submission .csv file with the predicted values of `y`.
 
 ### Decision Tree
 
-from sklearn.tree import DecisionTreeClassifier, plot_tree
 
+```ruby
+from sklearn.tree import DecisionTreeClassifier, plot_tree
+```
+
+
+```ruby
 tfidf = TfidfVectorizer(sublinear_tf=True, min_df=5, norm='l2', encoding='latin-1', ngram_range=(1, 2))
 dtc = DecisionTreeClassifier(random_state=0)
 
 pipe = Pipeline([("vectorizer",tfidf),
                  ("classifier",dtc)])
+```
 
+
+```ruby
 def run_cross_validation_on_trees(X, y, tree_depths, cv=5, scoring='accuracy'):
     cv_scores_list = []
     cv_scores_std = []
@@ -173,8 +190,10 @@ def plot_cross_validation_on_trees(depths, cv_scores_mean, cv_scores_std, accura
     #ax.set_ylim(ylim)
     ax.set_xticks(depths)
     ax.legend()
+```
 
 
+```ruby
 test_accuracy_score  = []
 train_accuracy_score = []
 for i in range(100,121):
@@ -185,25 +204,36 @@ for i in range(100,121):
     tree_predictions_train = pipelinedt.predict(x_train)
     test_accuracy_score.append(accuracy_score(y_test,tree_predictions))
     train_accuracy_score.append(accuracy_score(y_train,tree_predictions_train))
+```
 
+```ruby
 plot_cross_validation_on_trees(depths=range(100,121), cv_scores_mean=test_accuracy_score, accuracy_scores=train_accuracy_score,title="Decision Tree",cv_scores_std=0)
 max = pd.Series(test_accuracy_score).argmax()
 pd.Series(test_accuracy_score).argmax(),pd.Series(test_accuracy_score).max()
+```
 
+```ruby
 dtc = DecisionTreeClassifier(max_depth=100+max,random_state=0)
 
 pipelinedtc = Pipeline([("tokenizer",tfidf),
                         ("classifier",dtc)])
+```
+
 
 ### Random Forest
 
+```ruby
 from sklearn.ensemble import RandomForestClassifier
+```
 
+```ruby
 tfidf = TfidfVectorizer(sublinear_tf=True, min_df=5, norm='l2', encoding='latin-1', ngram_range=(1, 2))
 rf = RandomForestClassifier(random_state=0)
 
 pipe = Pipeline([("vectorizer", tfidf),
                  ("classifier", rf)])
+```
+
 
 ### Neural Networks
 
@@ -212,17 +242,17 @@ pipe = Pipeline([("vectorizer", tfidf),
 |  | Logistic Regression | KNearestNeighbors | Decision Tree | Random Forest | Neural Networks |
 | ------------- | ------------- | ------------- |------------- |------------- |------------- |
 | Precision | 0.4340 | 0.3733	 | 0.3153 | 0.3968	 | 0 |
-| Recall  | 0.4354 | 0.3635	 | 0.3146 | 0.3938	| 0 |
+| Recall  | 0.4354 | 0.3635	 | 0.3146 | 0.3937	| 0 |
 | F1-Score  | 0.4337 | 0.3419 | 0.3144	 | 0.3888	| 0 |
-| Accuracy  | 0.4354 | 0.3635	 | 0.3146	 | 0.3938 | 0 |
+| Accuracy  | 0.4354 | 0.3635	 | 0.3146	 | 0.3937 | 0 |
 
 
 ## Conclusions
-With the results presented above, we can cleary see that `Neural Networks Classiffier` achieved the best values of precision, recall, F1-score and accuracy in the test set created in the notebook used for this project.
+With the results presented above, we can cleary see that `Neural Networks Classiffier` achieved the best values of precision, recall, F1-score and accuracy in the test set created in the `training_data.csv` used for this project.
 
 This result was expected since, to use the `Neural Network Classifier` we cleaned our data, tokenized our text and also applied text embeding to achieve better quality in our classification. (**COMPLETAR**)
 
-Considering this results for the `training_data.csv`, and the fact that we took more time to prepare our data with the `Neural Networks` classification, we can assume that this classifier it will also have the best score when applied to our `unlabelled_test_data.csv`, and thereforem the submission made to the Kaggle competition page was generated with this model, in which we achieved a maximum score of 0.5300.
+Considering this results for the `training_data.csv`, and the fact that we took more time to prepare our data with the `Neural Networks` classification, we can assume that this classifier it will also have the best score when applied to our `unlabelled_test_data.csv`, and therefore the final submission made to the Kaggle competition page was generated with this model, in which we achieved a maximum score of 0.5300.
 
 ## Last steps
 With all of our codes completed and after analysing our results, the last thing necessary for the finalization of this project was to make a video explaining the process of development of all of our work. In _[nome do video](link do unlisted video)_, we start by talking about the problem presented, our goals and the algorithms that were used during the project. We also talk about our expected results and about the actual evaluation of our classifications.
