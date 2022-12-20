@@ -100,3 +100,30 @@ To finish all the analysis required for the `Logistic Regression`, we implemente
 
 
 ### Neural Networks
+
+
+## Results
+|  | Logistic Regression | KNearestNeighbors | Decision Tree | Random Forest | Neural Networks |
+| ------------- | ------------- | ------------- |------------- |------------- |------------- |
+| Precision | 0.4340 | 0.3733	 | 0.3153 | 0.3968	 | 0 |
+| Recall  | 0.4354 | 0.3635	 | 0.3146 | 0.3938	| 0 |
+| F1-Score  | 0.4337 | 0.3419 | 0.3144	 | 0.3888	| 0 |
+| Accuracy  | 0.4354 | 0.3635	 | 0.3146	 | 0.3938 | 0 |
+
+
+## Conclusions
+With the present results, we can cleary see that Neural Networks Classiffier achieved the best values of precision, recall, F1-score and accuracy in the test set created in the notebook used for this project.
+
+This result was expected since, as described in the  section of this GitHub, to use the Neural Network Classifier we cleaned our data, tokenized our text and also applied text embeding to achieve better quality in our classification.
+
+Considering this results for the `training_data.csv`, and the fact that we took more time to prepare our data with the Neural Networks classification, we can assume that this classifier it will also have the best score when applied to our `unlabelled_test_data.csv`.
+
+## Last steps
+With all of our codes completed and after analysing our results, the last thing necessary for the finalization of this project was to make a video explaining the process of development of all of our work. In _[nome do video](link do unlisted video)_, we start by talking about the problem presented, our goals and the algorithms that were used during the project. We also talk about our expected results and about the actual evaluation of our classifications.
+
+After recording the video and doing the necessary editing, it was posted as an unlisted video on YouTube so it can only be acessed by the correct link, given in this text and below:
+
+##### TEST CHANGE VIDEO LATER
+<div align="center">
+  <a href="https://www.youtube.com/watch?v=lD3s3jsw3pc"><img src="https://img.youtube.com/vi/lD3s3jsw3pc/0.jpg" alt="we found a message... | Raft"></a>
+</div>
