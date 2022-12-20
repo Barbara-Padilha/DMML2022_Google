@@ -242,6 +242,7 @@ Once the prediction is made on our `x_test` we obtain the predicted values of `y
 
 ### Neural Networks
 
+**IDK**
 
 ## Results
 |  | Logistic Regression | KNearestNeighbors | Decision Tree | Random Forest | Neural Networks |
