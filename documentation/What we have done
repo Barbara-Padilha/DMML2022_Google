@@ -1,0 +1,5 @@
+For this final project of the Data Mining and Machine Learning course of the autumn semester of 2022/2023, our goal was to use the knowledge obtained in class and through reasearch to analyse and classify sentences in French according to their difficulty. With this, it is possible to help non-ntive speakers to predict the difficulty of a text in French and find exemples of reading material that are appropriate depending on a persons level of understanding (`A1` to `C2`).
+
+In order to do so, we begin by downlading all the necessary data and material to build and train our models. The data used was found on the Kaggle Competition page, and is separated in `training_data.csv`, `unlabelled_test_data.csv` and  `sample_submission.csv`. These files contain the training set, in which we will build and train our models after a split between test and train data, the test data that we wish to classify after our models are complete and an exemple of how our results on the test data must be submitted to Kaggle, respectively.
+
+aaaaaaaaaaaaaa
