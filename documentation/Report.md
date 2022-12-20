@@ -91,13 +91,119 @@ The next step required for our analysis with the `Logistic Regression` model, wa
 To finish all the analysis required for the `Logistic Regression`, we implemented the created model in our `unlabelled_test_data.csv` to generate a a csv file in the same format as `sample_submission.csv`, for this we defined our `x` as the sentence column of our dataframe and used our `pipeline` to predict the values of `y`.
 
 ### K-Nearest Neighbors
+```ruby
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.model_selection import GridSearchCV
+```
+
+```ruby
+tfidf = TfidfVectorizer(sublinear_tf=True, min_df=5, norm='l2', encoding='latin-1', ngram_range=(1, 2))
+knn = KNeighborsClassifier()
+
+pipe = Pipeline([('vectorizer',tfidf),
+                 ('classifier', knn)])
+```                 
+
+```ruby
+k_range = list(range(1,31,2))
+parameters = { 'classifier__n_neighbors' : k_range,
+               'classifier__p' : (1,2),
+               'classifier__weights' : ['uniform','distance']
+              }
+
+gs = GridSearchCV(pipe, parameters, scoring='accuracy', return_train_score = False, verbose=1)
+grid_search = gs.fit(x_train,y_train)
+best_params = grid_search.best_params_
+
+k = best_params['classifier__n_neighbors']
+p = best_params['classifier__p']
+w = best_params['classifier__weights']
+```
+
+Fitting 5 folds for each of 60 candidates, totalling 300 fits
+By tuning the hyper parameters, we find that the best parameters for our KNN classification are: 
+ n_neighbors: 29 
+ p: 2 
+ weights: distance
+
+```ruby
+knn_gs = KNeighborsClassifier(n_neighbors=k, p=p, weights=w)
+
+pipekg = Pipeline([('vectorizer',tfidf),
+                   ('classifier', knn_gs)])
+```
 
 
 ### Decision Tree
 
+from sklearn.tree import DecisionTreeClassifier, plot_tree
+
+tfidf = TfidfVectorizer(sublinear_tf=True, min_df=5, norm='l2', encoding='latin-1', ngram_range=(1, 2))
+dtc = DecisionTreeClassifier(random_state=0)
+
+pipe = Pipeline([("vectorizer",tfidf),
+                 ("classifier",dtc)])
+
+def run_cross_validation_on_trees(X, y, tree_depths, cv=5, scoring='accuracy'):
+    cv_scores_list = []
+    cv_scores_std = []
+    cv_scores_mean = []
+    accuracy_scores = []
+    for depth in tree_depths:
+        tree_model = Pipeline([("tokenizer",tfidf),("decision_tree_classifier",DecisionTreeClassifier(max_depth=depth))])
+        cv_scores = cross_val_score(tree_model, X, y, cv=cv, scoring=scoring)
+        cv_scores_list.append(cv_scores)
+        cv_scores_mean.append(cv_scores.mean())
+        cv_scores_std.append(cv_scores.std())
+        accuracy_scores.append(tree_model.fit(X, y).score(X, y))
+    cv_scores_mean = np.array(cv_scores_mean)
+    cv_scores_std = np.array(cv_scores_std)
+    accuracy_scores = np.array(accuracy_scores)
+    return cv_scores_mean, cv_scores_std, accuracy_scores
+
+def plot_cross_validation_on_trees(depths, cv_scores_mean, cv_scores_std, accuracy_scores, title):
+    fig, ax = plt.subplots(1,1, figsize=(15,5))
+    ax.plot(depths, cv_scores_mean, '-o', label='mean cross-validation accuracy', alpha=0.9)
+    #ax.fill_between(depths, cv_scores_mean-2*cv_scores_std, cv_scores_mean+2*cv_scores_std, alpha=0.2)
+    ylim = plt.ylim()
+    ax.plot(depths, accuracy_scores, '-*', label='train accuracy', alpha=0.9)
+    ax.set_title(title, fontsize=16)
+    ax.set_xlabel('Tree depth', fontsize=14)
+    ax.set_ylabel('Accuracy', fontsize=14)
+    #ax.set_ylim(ylim)
+    ax.set_xticks(depths)
+    ax.legend()
+
+
+test_accuracy_score  = []
+train_accuracy_score = []
+for i in range(100,121):
+    pipelinedt = Pipeline([("tokenizer",tfidf),
+                         ("decision_tree_classifier",DecisionTreeClassifier(max_depth=i,random_state=0))])
+    pipelinedt.fit(x_train,y_train)
+    tree_predictions = pipelinedt.predict(x_test)
+    tree_predictions_train = pipelinedt.predict(x_train)
+    test_accuracy_score.append(accuracy_score(y_test,tree_predictions))
+    train_accuracy_score.append(accuracy_score(y_train,tree_predictions_train))
+
+plot_cross_validation_on_trees(depths=range(100,121), cv_scores_mean=test_accuracy_score, accuracy_scores=train_accuracy_score,title="Decision Tree",cv_scores_std=0)
+max = pd.Series(test_accuracy_score).argmax()
+pd.Series(test_accuracy_score).argmax(),pd.Series(test_accuracy_score).max()
+
+dtc = DecisionTreeClassifier(max_depth=100+max,random_state=0)
+
+pipelinedtc = Pipeline([("tokenizer",tfidf),
+                        ("classifier",dtc)])
 
 ### Random Forest
 
+from sklearn.ensemble import RandomForestClassifier
+
+tfidf = TfidfVectorizer(sublinear_tf=True, min_df=5, norm='l2', encoding='latin-1', ngram_range=(1, 2))
+rf = RandomForestClassifier(random_state=0)
+
+pipe = Pipeline([("vectorizer", tfidf),
+                 ("classifier", rf)])
 
 ### Neural Networks
 
