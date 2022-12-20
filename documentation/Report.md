@@ -218,11 +218,11 @@ pipe = Pipeline([("vectorizer", tfidf),
 
 
 ## Conclusions
-With the present results, we can cleary see that Neural Networks Classiffier achieved the best values of precision, recall, F1-score and accuracy in the test set created in the notebook used for this project.
+With the results presented above, we can cleary see that `Neural Networks Classiffier` achieved the best values of precision, recall, F1-score and accuracy in the test set created in the notebook used for this project.
 
-This result was expected since, as described in the  section of this GitHub, to use the Neural Network Classifier we cleaned our data, tokenized our text and also applied text embeding to achieve better quality in our classification.
+This result was expected since, to use the `Neural Network Classifier` we cleaned our data, tokenized our text and also applied text embeding to achieve better quality in our classification. (**COMPLETAR**)
 
-Considering this results for the `training_data.csv`, and the fact that we took more time to prepare our data with the Neural Networks classification, we can assume that this classifier it will also have the best score when applied to our `unlabelled_test_data.csv`.
+Considering this results for the `training_data.csv`, and the fact that we took more time to prepare our data with the `Neural Networks` classification, we can assume that this classifier it will also have the best score when applied to our `unlabelled_test_data.csv`, and thereforem the submission made to the Kaggle competition page was generated with this model, in which we achieved a maximum score of 0.5300.
 
 ## Last steps
 With all of our codes completed and after analysing our results, the last thing necessary for the finalization of this project was to make a video explaining the process of development of all of our work. In _[nome do video](link do unlisted video)_, we start by talking about the problem presented, our goals and the algorithms that were used during the project. We also talk about our expected results and about the actual evaluation of our classifications.
