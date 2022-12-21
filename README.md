@@ -33,7 +33,7 @@ After these codes were complete, we moved on to making our new model utilizing `
 
 Once all our models were created and trained, we used them on the `unlabelled_test_data.csv` to generate .csv files in the same format as `submission_exemple.csv` so that they could be submitted to the Kaggle competition page.
 
-The entire process of this project is better described in the [Report.md]() file in the `documentation` folder, and all the codes used are presented in the `codes` folder, which include a collab file with all the codes and also separate collab files for each model created.
+The entire process of this project is better described in the [Report.md](https://github.com/Barbara-Padilha/DMML2022_Google/blob/main/documentation/Report.md) file in the `documentation` folder, and all the codes used are presented in the `code` folder, which include a collab file with all the codes and also separate collab files for each model created.
 
 ## Results
 |  | Logistic Regression | KNearestNeighbors | Decision Tree | Random Forest | Neural Networks |
