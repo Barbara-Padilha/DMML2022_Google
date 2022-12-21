@@ -20,7 +20,20 @@ In order to do so, we should use some of the methods tought during class, such a
 After this first step, we need to utilize a different classification method and text analysis techniques to try to obtain the best possible score for our text classification. 
  
 ## Approach
-resumo de como fizemos
+We began our project by importing all the necessary packages to generate our models, read our texts and also slip the `training_data.csv` into `x_train`, `x_test`, `y_train` and `y_test`, being that `x` is the sentences in French that we wish to classify and `y` is the difficulty, therefore, the categories we wish to classify our texts into. It is into this data that we will create and train all our models in the beginning.
+
+Afterwards, we moved on to creating the necessary code for the basic classification methods show in class, which were `Logistic Regression`, `K-Nearest Neighbors`, `Decision Tree` and `Random Forest`, once these classifiers paired with the `Tf-IDF Vectorizer` in their respective `pipelines` it was possible to generate the prediction of the difficulty of the French sentences used to train our model. In every case mentined above we used a function called `evaluate` to obtain the value of the accuracy score, the precision, the recall, the F1-score, as well as the confusion matrix for each model.
+
+There were slight differences in the required actions of each type of classification:
+- in the `Logistic Regression` we has to locate exemples of wrongly classified texts;
+- in the `K-Nearest Neighbors` and in the `Decision Tree` we had to tune in our hyperparameters to improve our classification;
+- in the `Logistic Regression`, `Decision Tree` and `Random Forest` we had to set the random state of our classifier to 0, which was not necessary in the `K-Nearest Neighbors` since it does not have this parameter.
+
+After these codes were complete, we moved on to making our new model utilizing `Neural Networks`, in which we went through the process of cleaning our data, tokenizing our texts and we also substituted the `TF-IDF Vectorizer` for text embbebing, all this with the goal of obtaining better results for the accuracy, precision, recall and F1-score.
+
+Once all our models were created and trained, we used them on the `unlabelled_test_data.csv` to generate .csv files in the same format as `submission_exemple.csv` so that they could be submitted to the Kaggle competition page.
+
+The entire process of this project is better described in the [Report.md]() file in the `documentation` folder, and all the codes used are presented in the `codes` folder, which include a collab file with all the codes and also separate collab files for each model created.
 
 ## Results
 |  | Logistic Regression | KNearestNeighbors | Decision Tree | Random Forest | Neural Networks |
