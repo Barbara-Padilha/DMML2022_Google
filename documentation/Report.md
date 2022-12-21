@@ -145,11 +145,13 @@ To finish our analysis with the `K-Nearest Neighbors Classifier` we once again u
 
 ### Decision Tree
 
+When working with the `Decision Tree` model, we will follow a patter very similar to the one in the `K-Nearest Neighbors` model, meaning that after we run our `pipeline` we will tune our parameters in order to improve our classification. In any case, we begin by importing the necessary commands:
 
 ```ruby
 from sklearn.tree import DecisionTreeClassifier, plot_tree
 ```
 
+With the new imports, we can create the necessary `pipeline` to begin our classification, noting that once again we set the random state of our classifier to 0 before using it.
 
 ```ruby
 tfidf = TfidfVectorizer(sublinear_tf=True, min_df=5, norm='l2', encoding='latin-1', ngram_range=(1, 2))
@@ -159,6 +161,9 @@ pipe = Pipeline([("vectorizer",tfidf),
                  ("classifier",dtc)])
 ```
 
+After running our code, we are able to predict values for `y`, but after running the `evaluate` function, it is possible to observe that the results for accuracy, precision, recall and F1-score are not as high as expected.
+
+Because of this, we need to find the maximun tree depth that will improve our results, in order to do so we needed to define the following functions:
 
 ```ruby
 def run_cross_validation_on_trees(X, y, tree_depths, cv=5, scoring='accuracy'):
@@ -192,6 +197,7 @@ def plot_cross_validation_on_trees(depths, cv_scores_mean, cv_scores_std, accura
     ax.legend()
 ```
 
+With this functions we are now able to run iterations on our code, searching to calculate our desired results for various `tree_depth` values, and with this array of results, we can proceed to plot a graph that relates the depth of our tree with the accuracy score, identifying the best possible value for our `tree_depth` variable.
 
 ```ruby
 test_accuracy_score  = []
@@ -212,6 +218,8 @@ max = pd.Series(test_accuracy_score).argmax()
 pd.Series(test_accuracy_score).argmax(),pd.Series(test_accuracy_score).max()
 ```
 
+Once we the code show above produces the necessary graph and returs the best value for `tree_depth`, we can finally create a new `pipelinedtc` to run our classification with.
+
 ```ruby
 dtc = DecisionTreeClassifier(max_depth=100+max,random_state=0)
 
@@ -219,6 +227,7 @@ pipelinedtc = Pipeline([("tokenizer",tfidf),
                         ("classifier",dtc)])
 ```
 
+And once again, the final steps for our `Decision Tree Classifier` is to run the `evaluate` function and apply our trained model to the `unlabelled_test_data.csv` and generate another set of predictions as a submissable .csv file.
 
 ### Random Forest
 
@@ -256,7 +265,7 @@ Once the prediction is made on our `x_test` we obtain the predicted values of `y
 ## Conclusions
 With the results presented above, we can cleary see that `Neural Networks Classiffier` achieved the best values of precision, recall, F1-score and accuracy in the test set created in the `training_data.csv` used for this project.
 
-This result was expected since, to use the `Neural Network Classifier` we cleaned our data, tokenized our text and also applied text embeding to achieve better quality in our classification. (**COMPLETAR**)
+This result was expected since, to use the `Neural Network Classifier` we cleaned our data, tokenized our text and also applied text embeding to achieve better quality in our classification.
 
 Considering this results for the `training_data.csv`, and the fact that we took more time to prepare our data with the `Neural Networks` classification, we can assume that this classifier it will also have the best score when applied to our `unlabelled_test_data.csv`, and therefore the final submission made to the Kaggle competition page was generated with this model, in which we achieved a maximum score of 0.5300.
 
