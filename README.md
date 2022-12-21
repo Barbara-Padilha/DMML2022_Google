@@ -20,7 +20,7 @@ In order to do so, we should use some of the methods tought during class, such a
 After this first step, we need to utilize a different classification method and text analysis techniques to try to obtain the best possible score for our text classification. 
  
 ## Approach
-We began our project by importing all the necessary packages to generate our models, read our texts and also slip the `training_data.csv` into `x_train`, `x_test`, `y_train` and `y_test`, being that `x` is the sentences in French that we wish to classify and `y` is the difficulty, therefore, the categories we wish to classify our texts into. It is into this data that we will create and train all our models in the beginning.
+We began our project by importing all the necessary packages to generate our models, read our texts and also split the `training_data.csv` into `x_train`, `x_test`, `y_train` and `y_test`, being that `x` is the sentences in French that we wish to classify and `y` is the difficulty, therefore, the categories we wish to classify our texts into. It is into this data that we will create and train all our models in the beginning.
 
 Afterwards, we moved on to creating the necessary code for the basic classification methods show in class, which were `Logistic Regression`, `K-Nearest Neighbors`, `Decision Tree` and `Random Forest`, once these classifiers paired with the `Tf-IDF Vectorizer` in their respective `pipelines` it was possible to generate the prediction of the difficulty of the French sentences used to train our model. In every case mentined above we used a function called `evaluate` to obtain the value of the accuracy score, the precision, the recall, the F1-score, as well as the confusion matrix for each model.
 
