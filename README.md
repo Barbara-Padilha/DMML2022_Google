@@ -25,7 +25,7 @@ We began our project by importing all the necessary packages to generate our mod
 Afterwards, we move on to creating the necessary code for the basic classification methods show in class, which were `Logistic Regression`, `K-Nearest Neighbors`, `Decision Tree` and `Random Forest`, once these classifiers were paired with the `Tf-IDF Vectorizer` in their respective `pipelines` it was possible to generate the prediction of the difficulty of the French sentences used to train our model. In every case mentioned above we used a function called `evaluate` to obtain the value of the accuracy score, the precision, the recall, the F1-score, as well as the confusion matrix for each model.
 
 There were slight differences in the required actions of each type of classification:
-- in the `Logistic Regression` we has to locate exemples of wrongly classified texts;
+- in the `Logistic Regression` we had to locate exemples of wrongly classified texts;
 - in the `K-Nearest Neighbors` and in the `Decision Tree` we had to tune in our hyperparameters to improve our classification;
 - in the `Logistic Regression`, `Decision Tree` and `Random Forest` we had to set the random state of our classifier to 0, which was not necessary in the `K-Nearest Neighbors` since it does not have this parameter.
 
