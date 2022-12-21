@@ -251,8 +251,41 @@ Once the prediction is made on our `x_test` we obtain the predicted values of `y
 
 ### Neural Networks
 
-**IDK**
+For the proposed new model, we thought i would be intresting to evaluate how a neural network would perform on such text classification task, with the addition of a word better text embeding system. The famous package TensowFlow was used due to it`s more high level code usabillity, which allows the user to create the architecture of the neural netowork and train the model more easily.
+Instead of the TFIDF vectorization, it was used a multilingual word transformer from Google, which converts each sentence into a vector composed of 512 values, as seen on the example below:
+```ruby
+embed_1(["bounjour","je suis Victor"])
 
+Output:
+<tf.Tensor: shape=(2, 512), dtype=float32, numpy=
+array([[ 0.15410367,  0.02259256, -0.0677164 , ...,  0.04396354,
+        -0.00034411,  0.0091284 ],
+       [ 0.05661425, -0.01597459, -0.04966924, ..., -0.0372095 ,
+         0.0325578 , -0.02770256]], dtype=float32)>
+
+```
+
+For the data processing, it was necessary to encode the variables into number, so we used the scikitlearn OrdinalEncoder class and obtained the numerical equivalents of the CEFR on numbers ranging from 0 to 5. 
+
+```ruby
+oe = OrdinalEncoder()
+oe.set_params(categories= [['A1', 'A2', 'B1',"B2","C1","C2"]])
+v = y0.to_numpy().reshape(-1,1)
+y0=pd.DataFrame(oe.fit_transform(v).reshape(4800),columns=["difficulty"])
+print(y0.head())
+oe.categories
+
+Output:
+difficulty
+0         4.0
+1         0.0
+2         0.0
+3         0.0
+4         2.0
+
+[['A1', 'A2', 'B1', 'B2', 'C1', 'C2']]
+
+```
 ## Results
 |  | Logistic Regression | KNearestNeighbors | Decision Tree | Random Forest | Neural Networks |
 | ------------- | ------------- | ------------- |------------- |------------- |------------- |
