@@ -33,7 +33,7 @@ For all this process we needed to import from sklearn:
 Once we knew the value of our baseline, we continue on to create our models. The models used to start our classification during this project were `Logistic Regression`, `K-Nearest Neighbors`, `Decision Tree` and `Random Forest`, when it comes for the text analysis, we did not use any sort of data cleaning or tokenization for the firsts models created, we simply used the `TF-IDF Vectorizer`. After doing this base work to have a better understanding of our data, we chose to use `Neural Networks` as our extra technique for classification and with it we also applied various techniques of text analysis to try to improve our results.
 
 ### Logistic Regression
-For all the cases mentioned above, we begin our coding by downloading the necessary packages and language sets to use desired classification method and the necessary text analysis. Using the exemple of our `Logistic Regression Classifier`, the packages downloaded to read our data and create our model were:
+For all the cases mentioned above, we begin our coding by downloading the necessary packages and language sets to use desired classification method and the necessary text analysis. Using the example of our `Logistic Regression Classifier`, the packages downloaded to read our data and create our model were:
 
 ```ruby
 # Install and update spaCy
@@ -227,7 +227,7 @@ pipelinedtc = Pipeline([("tokenizer",tfidf),
                         ("classifier",dtc)])
 ```
 
-And once again, the final steps for our `Decision Tree Classifier` is to run the `evaluate` function and apply our trained model to the `unlabelled_test_data.csv` and generate another set of predictions as a submissable .csv file.
+And once again, the final steps for our `Decision Tree Classifier` is to run the `evaluate` function and apply our trained model to the `unlabelled_test_data.csv` and generate another set of predictions as a submissible .csv file.
 
 ### Random Forest
 
@@ -247,7 +247,7 @@ pipe = Pipeline([("vectorizer", tfidf),
                  ("classifier", rf)])
 ```
 
-Once the prediction is made on our `x_test` we obtain the predicted values of `y` and we can then use the function `evaluate`, defined previously, to compared the obtained predictions to the actual `y_test` values. With this we obtain our accuracy, precision, recall, F1-score and confusion matrix, the only step to be taken after this is running our model on the `unlabelled_test_data.csv` in order to create a submittable .csv file.
+Once the prediction is made on our `x_test` we obtain the predicted values of `y` and we can then use the function `evaluate`, defined previously, to compare the obtained predictions to the actual `y_test` values. With this we obtain our accuracy, precision, recall, F1-score and confusion matrix, the only step to be taken after this is running our model on the `unlabelled_test_data.csv` in order to create a submittable .csv file.
 
 ### Neural Networks
 
@@ -263,16 +263,16 @@ Once the prediction is made on our `x_test` we obtain the predicted values of `y
 
 
 ## Conclusions
-With the results presented above, we can cleary see that `Neural Networks Classifier` achieved the best values of precision, recall, F1-score and accuracy in the test set created in the `training_data.csv` used for this project.
+With the results presented above, we can clearly see that `Neural Networks Classifier` achieved the best values of precision, recall, F1-score and accuracy in the test set created in the `training_data.csv` used for this project.
 
-This result was expected since, to use the `Neural Network Classifier` we cleaned our data, tokenized our text and also applied text embeding to achieve better quality in our classification.
+This result was expected since, to use the `Neural Network Classifier` we cleaned our data, tokenized our text and also applied text embedding to achieve better quality in our classification.
 
 Considering this results for the `training_data.csv`, and the fact that we took more time to prepare our data with the `Neural Networks` classification, we can assume that this classifier it will also have the best score when applied to our `unlabelled_test_data.csv`, and therefore the final submission made to the Kaggle competition page was generated with this model, in which we achieved a maximum score of 0.5300.
 
 ## Last steps
 With all of our codes completed and after analyzing our results, the last thing necessary for the finalization of this project was to make a video explaining the process of development of all of our work. In _[nome do video](link do unlisted video)_, we start by talking about the problem presented, our goals and the algorithms that were used during the project. We also talk about our expected results and about the actual evaluation of our classifications.
 
-After recording the video and doing the necessary editing, it was posted as an unlisted video on YouTube so it can only be acessed by the correct link, given in this text and below:
+After recording the video and doing the necessary editing, it was posted as an unlisted video on YouTube so it can only be accessed by the correct link, given in this text and below:
 
 ##### TEST CHANGE VIDEO LATER
 <div align="center">
