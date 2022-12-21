@@ -1,10 +1,10 @@
 # Data Mining and Machine Learning Project Report
 
 ## Introduction
-For this final project of the Data Mining and Machine Learning course of the autumn semester of 2022/2023, our goal was to use the knowledge obtained in class and through reasearch to analyse and classify sentences in French according to their difficulty. With this, it is possible to help non-ntive speakers to predict the difficulty of a text in French and find exemples of reading material that are appropriate depending on a persons level of understanding (`A1` to `C2`).
+For this final project of the Data Mining and Machine Learning course of the autumn semester of 2022/2023, our goal was to use the knowledge obtained in class and through research to analyze and classify sentences in French according to their difficulty. With this, it is possible to help non-native speakers to predict the difficulty of a text in French and find examples of reading material that are appropriate depending on a person's level of understanding (`A1` to `C2`).
 
 ## First steps
-In order to do so, we begin by downlading all the necessary data and material to build and train our models. The data used was found on the Kaggle Competition page, and is separated in `training_data.csv`, `unlabelled_test_data.csv` and  `sample_submission.csv`. These files contain the training set, in which we will build and train our models after a split between test and train data, the actual test data that we wish to classify after our models are complete and an exemple of how our results on the test data must be submitted to Kaggle, respectively.
+In order to do so, we begin by downloading all the necessary data and material to build and train our models. The data used was found on the Kaggle Competition page, and is separated in `training_data.csv`, `unlabelled_test_data.csv` and  `sample_submission.csv`. These files contain the training set, in which we will build and train our models after a split between test and train data, the actual test data that we wish to classify after our models are complete and an example of how our results on the test data must be submitted to Kaggle, respectively.
 
 With all the data needed, the next step we took was to download the basic packs needed for our analysis during the project, those being:
 
@@ -18,11 +18,11 @@ With all the data needed, the next step we took was to download the basic packs 
 ```
 
 ## Checking the baseline
-With the packages installed, we move on to check the value of our baseline in the `training_data.csv` in order to have a better understanding of our data. For this, we begin by splitting our datas into `x_train`, `x_test`, `y_train` and `y_test`, being the `x` values the sentences in French and the `y` values their difficulty. Once that was done we used two different methods to calculate the baseline. 
+With the packages installed, we move on to check the value of our baseline in the `training_data.csv` in order to have a better understanding of our data. For this, we begin by splitting our data into `x_train`, `x_test`, `y_train` and `y_test`, being the `x` values the sentences in French and the `y` values their difficulty. Once that was done, we used two different methods to calculate the baseline. 
 
 The first method used, was with the `Dummy Classifier`, which we set to use the most frequent values, fit on our `y_train` set and score on the `y_test`, with this we obtained a baseline of 0.1677. The second method was used to confirm the value found previously, and in it we used the `.value_counts()` command to know the values of each difficulty in the whole dataframe used and which had a bigger frequency, once we knew that, we divided the value of the most frequent difficulty by the total amount and obtained a value of 0.1694 for our baseline. 
 
-For all of this process we needed to import from sklearn:
+For all this process we needed to import from sklearn:
 
 ```ruby
  from sklearn.model_selection import train_test_split
@@ -30,7 +30,7 @@ For all of this process we needed to import from sklearn:
 ```
 
 ## Creating the models
-Once we knew the value of our baseline, we continue on to create our models. The models used to start our classification during this project were `Logistic Regression`, `K-Nearest Neighbors`, `Decision Tree` and `Random Forest`, when it comes for the text analysis, we did not use any sort of data cleaning or tokenization for the models created, we simply used the `TF-IDF Vectorizer`. After doing this base work to have a better understanding of our data, we chose to use `Neural Networks` as our extra technique for classification and with it we also applied various techniques of text analysis in order to try to improve our results.
+Once we knew the value of our baseline, we continue on to create our models. The models used to start our classification during this project were `Logistic Regression`, `K-Nearest Neighbors`, `Decision Tree` and `Random Forest`, when it comes for the text analysis, we did not use any sort of data cleaning or tokenization for the firsts models created, we simply used the `TF-IDF Vectorizer`. After doing this base work to have a better understanding of our data, we chose to use `Neural Networks` as our extra technique for classification and with it we also applied various techniques of text analysis to try to improve our results.
 
 ### Logistic Regression
 For all the cases mentioned above, we begin our coding by downloading the necessary packages and language sets to use desired classification method and the necessary text analysis. Using the exemple of our `Logistic Regression Classifier`, the packages downloaded to read our data and create our model were:
@@ -53,7 +53,7 @@ For all the cases mentioned above, we begin our coding by downloading the necess
  from sklearn.metrics import confusion_matrix, accuracy_score, precision_score, recall_score, f1_score
 ```
 
-After this crutial step, we begin to code our model by creating the `pipeline` that we will to fit our train data and classify our sentences, for the `Logistic Regression`, we use:
+After this crucial step, we begin to code our model by creating the `pipeline` that we will use to fit our train data and classify our sentences, for the `Logistic Regression`, we use:
 
 ```ruby
  tfidf = TfidfVectorizer(sublinear_tf=True, min_df=5, norm='l2', encoding='latin-1', ngram_range=(1, 2))
@@ -78,7 +78,7 @@ def evaluate(true, pred):
     print(f"CLASSIFICATION REPORT:\n\tPrecision: {precision:.4f}\n\tRecall: {recall:.4f}\n\tF1_Score: {f1:.4f}")
 ```
 
-The next step required for our analysis with the `Logistic Regression` model, was to identify exemples wrongly classified texts, for this we had to compare the values of `y_test` to `y_pred` if they were identical, it meant that the classification was accurate, while if they were not equal, we had a wrongly classified text. Some exemples found were:
+The next step required for our analysis with the `Logistic Regression` model, was to identify examples wrongly classified texts, for this we had to compare the values of `y_test` to `y_pred` if they were identical, it meant that the classification was accurate, while if they were not equal, we had a wrongly classified text. Some examples found were:
 
 > C'est en décembre 1967, après bien des invectives au Parlement, que sa loi relative à la régulation des naissances, dite loi Neuwirth est votée : elle autorise la vente exclusive des contraceptifs en pharmacie sur ordonnance médicale, avec autorisation parentale pour les mineures
 
@@ -145,7 +145,7 @@ To finish our analysis with the `K-Nearest Neighbors Classifier` we once again u
 
 ### Decision Tree
 
-When working with the `Decision Tree` model, we will follow a patter very similar to the one in the `K-Nearest Neighbors` model, meaning that after we run our `pipeline` we will tune our parameters in order to improve our classification. In any case, we begin by importing the necessary commands:
+When working with the `Decision Tree` model, we will follow a pattern very similar to the one in the `K-Nearest Neighbors` model, meaning that after we run our `pipeline` we will tune our parameters in order to improve our classification. In any case, we begin by importing the necessary commands:
 
 ```ruby
 from sklearn.tree import DecisionTreeClassifier, plot_tree
@@ -163,7 +163,7 @@ pipe = Pipeline([("vectorizer",tfidf),
 
 After running our code, we are able to predict values for `y`, but after running the `evaluate` function, it is possible to observe that the results for accuracy, precision, recall and F1-score are not as high as expected.
 
-Because of this, we need to find the maximun tree depth that will improve our results, in order to do so we needed to define the following functions:
+Because of this, we need to find the maximum tree depth that will improve our results, to do so we needed to define the following functions:
 
 ```ruby
 def run_cross_validation_on_trees(X, y, tree_depths, cv=5, scoring='accuracy'):
@@ -218,7 +218,7 @@ max = pd.Series(test_accuracy_score).argmax()
 pd.Series(test_accuracy_score).argmax(),pd.Series(test_accuracy_score).max()
 ```
 
-Once we the code show above produces the necessary graph and returs the best value for `tree_depth`, we can finally create a new `pipelinedtc` to run our classification with.
+Once we the code show above produces the necessary graph and returns the best value for `tree_depth`, we can finally create a new `pipelinedtc` to run our classification with.
 
 ```ruby
 dtc = DecisionTreeClassifier(max_depth=100+max,random_state=0)
@@ -231,7 +231,7 @@ And once again, the final steps for our `Decision Tree Classifier` is to run the
 
 ### Random Forest
 
-When we worked on our `Random Forest` classification, we followe the same patterns as before, beginning by importing the packages needed, which now include:
+When we worked on our `Random Forest` classification, we followed the same patterns as before, beginning by importing the packages needed, which now include:
 
 ```ruby
 from sklearn.ensemble import RandomForestClassifier
@@ -263,14 +263,14 @@ Once the prediction is made on our `x_test` we obtain the predicted values of `y
 
 
 ## Conclusions
-With the results presented above, we can cleary see that `Neural Networks Classiffier` achieved the best values of precision, recall, F1-score and accuracy in the test set created in the `training_data.csv` used for this project.
+With the results presented above, we can cleary see that `Neural Networks Classifier` achieved the best values of precision, recall, F1-score and accuracy in the test set created in the `training_data.csv` used for this project.
 
 This result was expected since, to use the `Neural Network Classifier` we cleaned our data, tokenized our text and also applied text embeding to achieve better quality in our classification.
 
 Considering this results for the `training_data.csv`, and the fact that we took more time to prepare our data with the `Neural Networks` classification, we can assume that this classifier it will also have the best score when applied to our `unlabelled_test_data.csv`, and therefore the final submission made to the Kaggle competition page was generated with this model, in which we achieved a maximum score of 0.5300.
 
 ## Last steps
-With all of our codes completed and after analysing our results, the last thing necessary for the finalization of this project was to make a video explaining the process of development of all of our work. In _[nome do video](link do unlisted video)_, we start by talking about the problem presented, our goals and the algorithms that were used during the project. We also talk about our expected results and about the actual evaluation of our classifications.
+With all of our codes completed and after analyzing our results, the last thing necessary for the finalization of this project was to make a video explaining the process of development of all of our work. In _[nome do video](link do unlisted video)_, we start by talking about the problem presented, our goals and the algorithms that were used during the project. We also talk about our expected results and about the actual evaluation of our classifications.
 
 After recording the video and doing the necessary editing, it was posted as an unlisted video on YouTube so it can only be acessed by the correct link, given in this text and below:
 
