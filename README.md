@@ -45,7 +45,7 @@ The entire process of this project is better described in the [Report.md](https:
 
 With the present results, we can clearly see that Neural Networks Classifier achieved the best values of precision, recall, F1-score and accuracy in the test set created in the notebook used for this project.
 
-This result was expected since, as described in the [Approach](https://github.com/Barbara-Padilha/DMML2022_Google#approach) section of this GitHub, to use the Neural Network Classifier we cleaned our data, tokenized our text and also applied text embedding to achieve better quality in our classification.
+This result was expected since, as described in the [Approach](https://github.com/Barbara-Padilha/DMML2022_Google#approach) section of this GitHub, to use the Neural Network Classifier we applied text embedding and created a network with many layers that, according to our results, managed to better grasp the profiling of the senteneces. 
 
 Considering these results for the `training_data.csv`, and the fact that we took more time to prepare our data with the Neural Networks classification, we can assume that this classifier it will also have the best score when applied to our `unlabelled_test_data.csv`.
 
