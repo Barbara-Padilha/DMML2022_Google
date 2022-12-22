@@ -380,10 +380,10 @@ This result was expected since, to use the `Neural Network Classifier` we cleane
 Considering this results for the `training_data.csv`, and the fact that we took more time to prepare our data with the `Neural Networks` classification, we can assume that this classifier it will also have the best score when applied to our `unlabelled_test_data.csv`, and therefore the final submission made to the Kaggle competition page was generated with this model, in which we achieved a maximum score of 0.5300.
 
 ## Last steps
-With all of our codes completed and after analyzing our results, the last thing necessary for the finalization of this project was to make a video explaining the process of development of all of our work. In _[Classification models for non-native French speakers according to CERR](https://youtu.be/FxyRRnbC9nk)_, we start by talking about the problem presented, our goals and the algorithms that were used during the project. We also talk about our expected results and about the actual evaluation of our classifications.
+With all of our codes completed and after analyzing our results, the last thing necessary for the finalization of this project was to make a video explaining the process of development of all of our work. In _[Classification models for non-native French speakers according to CEFR](https://youtu.be/FxyRRnbC9nk)_, we start by talking about the problem presented, our goals and the algorithms that were used during the project. We also talk about our expected results and about the actual evaluation of our classifications.
 
 After recording the video and doing the necessary editing, it was posted as an unlisted video on YouTube so it can only be accessed by the correct link, given in this text and below:
 
 <div align="center">
-  <a href="https://www.youtube.com/watch?v=FxyRRnbC9nk"><img src="https://img.youtube.com/vi/FxyRRnbC9nk/0.jpg" alt="Classification models for non-native French speakers according to CERR"></a>
+  <a href="https://www.youtube.com/watch?v=FxyRRnbC9nk"><img src="https://img.youtube.com/vi/FxyRRnbC9nk/0.jpg" alt="Classification models for non-native French speakers according to CEFR"></a>
 </div>
