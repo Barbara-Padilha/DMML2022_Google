@@ -29,7 +29,7 @@ There were slight differences in the required actions of each type of classifica
 - in the `K-Nearest Neighbors` and in the `Decision Tree` we had to tune in our hyperparameters to improve our classification;
 - in the `Logistic Regression`, `Decision Tree` and `Random Forest` we had to set the random state of our classifier to 0, which was not necessary in the `K-Nearest Neighbors` since it does not have this parameter.
 
-After these codes were complete, we moved on to making our new model utilizing `Neural Networks`, in which we went through the process of cleaning our data, tokenizing our texts, using text embedding techniques, applying the `TensorFlow` package and we also substituted the `TF-IDF Vectorizer` for another vectorizer, all this with the goal of obtaining better results for the accuracy, precision, recall and F1-score.
+After these codes were complete, we moved on to making our new model utilizing `Neural Networks`, in which we went through the process of using text embedding techniques, applying the `TensorFlow` package. We substituted the `TF-IDF Vectorizer` for a multilingual word embedding transformer from Google, which genrated vectors containing 512 values that became the features used to train the model, all this with the goal of obtaining better results for the accuracy, precision, recall and F1-score.
 
 Once all our models were created and trained, we used them on the `unlabelled_test_data.csv` to generate .csv files in the same format as `submission_exemple.csv` so that they could be submitted to the Kaggle competition page.
 
@@ -38,10 +38,10 @@ The entire process of this project is better described in the [Report.md](https:
 ## Results
 |  | Logistic Regression | KNearestNeighbors | Decision Tree | Random Forest | Neural Networks |
 | ------------- | ------------- | ------------- |------------- |------------- |------------- |
-| Precision | 0.4340 | 0.3733	 | 0.3153 | 0.3968	 | 0 |
-| Recall  | 0.4354 | 0.3635	 | 0.3146 | 0.3937	| 0 |
-| F1-Score  | 0.4337 | 0.3419 | 0.3144	 | 0.3888	| 0 |
-| Accuracy  | 0.4354 | 0.3635	 | 0.3146	 | 0.3937 | 0 |
+| Precision | 0.4340 | 0.3733	 | 0.3153 | 0.3968	 | 0.5372 |
+| Recall  | 0.4354 | 0.3635	 | 0.3146 | 0.3937	| 0.5365 |
+| F1-Score  | 0.4337 | 0.3419 | 0.3144	 | 0.3888	| 0.5254 |
+| Accuracy  | 0.4354 | 0.3635	 | 0.3146	 | 0.3937 | 0.5365 |
 
 With the present results, we can clearly see that Neural Networks Classifier achieved the best values of precision, recall, F1-score and accuracy in the test set created in the notebook used for this project.
 
