@@ -52,7 +52,7 @@ Considering these results for the `training_data.csv`, and the fact that we took
 ## YouTube Video
 Video explaining the algorithms used this project, as well as an evaluation of the solutions obtained:
 
-[Classification models for non-native French speakers according to CERR](https://youtu.be/FxyRRnbC9nk)
+[Classification models for non-native French speakers according to CEFR](https://youtu.be/FxyRRnbC9nk)
 <div align="center">
-  <a href="https://www.youtube.com/watch?v=FxyRRnbC9nk"><img src="https://img.youtube.com/vi/FxyRRnbC9nk/0.jpg" alt="Classification models for non-native French speakers according to CERR"></a>
+  <a href="https://youtu.be/FxyRRnbC9nk"><img src="https://img.youtube.com/vi/FxyRRnbC9nk/0.jpg" alt="Classification models for non-native French speakers according to CEFR"></a>
 </div>
