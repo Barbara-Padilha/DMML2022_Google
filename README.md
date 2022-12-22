@@ -29,7 +29,7 @@ There were slight differences in the required actions of each type of classifica
 - in the `K-Nearest Neighbors` and in the `Decision Tree` we had to tune in our hyperparameters to improve our classification;
 - in the `Logistic Regression`, `Decision Tree` and `Random Forest` we had to set the random state of our classifier to 0, which was not necessary in the `K-Nearest Neighbors` since it does not have this parameter.
 
-After these codes were complete, we moved on to making our new model utilizing `Neural Networks`, in which we went through the process of cleaning our data, tokenizing our texts and we also substituted the `TF-IDF Vectorizer` for text embedding, all this with the goal of obtaining better results for the accuracy, precision, recall and F1-score.
+After these codes were complete, we moved on to making our new model utilizing `Neural Networks`, in which we went through the process of cleaning our data, tokenizing our texts, using text embedding techniques, applying the `TensorFlow` package and we also substituted the `TF-IDF Vectorizer` for another vectorizer, all this with the goal of obtaining better results for the accuracy, precision, recall and F1-score.
 
 Once all our models were created and trained, we used them on the `unlabelled_test_data.csv` to generate .csv files in the same format as `submission_exemple.csv` so that they could be submitted to the Kaggle competition page.
 
