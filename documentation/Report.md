@@ -288,6 +288,60 @@ difficulty
 [['A1', 'A2', 'B1', 'B2', 'C1', 'C2']]
 
 ```
+After the pre-processing, the data is split into training, validation and test data, using the below seen code to perform the split. 
+
+```ruby
+
+X_train, X_temp, y_train, y_temp = train_test_split(X, y, test_size=0.2, random_state=0)
+X_valid, X_test, y_valid, y_test = train_test_split(X_temp, y_temp, test_size=0.4, random_state=0) #test_size=0.5
+
+X_train.shape,X_test.shape,X_valid.shape
+
+Output:
+((3840, 512), (384, 512), (576, 512))
+
+
+```
+For the traning procedure, the data is then subdivided into batches.
+
+```ruby
+def df_to_dataset(dataframe,y_t, shuffle=True, batch_size=30):
+  df = dataframe.copy()
+  #labels = df.pop('difficulty')
+  df = df
+  ds = tf.data.Dataset.from_tensor_slices((df, y_t))
+  if shuffle:
+    ds = ds.shuffle(buffer_size=len(dataframe))
+  ds = ds.batch(batch_size)
+  ds = ds.prefetch(tf.data.AUTOTUNE)
+  return ds
+  
+bs = 5 # 15 foi um valor muito bom
+x_tr = df_to_dataset(X_train,y_t=y_train,shuffle=True,batch_size = bs)
+x_te = df_to_dataset(X_test,y_t=y_test,shuffle=True,batch_size = bs)
+x_va = df_to_dataset(X_valid,y_t=y_valid,shuffle=True,batch_size = bs)
+```
+
+For the main Neural Network architecture we used a sequential model composed of regular neurons and dropout layers, followed by a final layer in which a sigmoid function is applied. 
+
+```ruby
+model = tf.keras.Sequential([
+                            tf.keras.layers.Dense(1064,activation="relu"),
+                            tf.keras.layers.Dropout(0.6),
+                            tf.keras.layers.Dense(516,activation="relu"),
+                            tf.keras.layers.Dropout(0.6),
+                            tf.keras.layers.Dense(64,activation="relu"),
+                            tf.keras.layers.Dropout(0.4),
+                            tf.keras.layers.Dense(6,activation = "sigmoid") 
+                            
+                            ])
+```
+On the plots we can se the evolution of the accuracy score and the loss function over time, and it`s noticable that after 5 epochs the validation loss function reaches a plateau, but after the 14th iteration it starts to increase again.
+
+
+![image](https://user-images.githubusercontent.com/99041142/209179649-3e8164db-49db-4f8a-aaec-93a2d52ccd36.png)
+
+
 ## Results
 |  | Logistic Regression | KNearestNeighbors | Decision Tree | Random Forest | Neural Networks |
 | ------------- | ------------- | ------------- |------------- |------------- |------------- |
