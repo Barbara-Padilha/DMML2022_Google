@@ -9,7 +9,7 @@
 
 ## Participants
  * Bárbara Maltoni Padilha
- * João Victor Velanes de Faria Ribeira da Silva
+ * João Victor Velanes de Faria Ribeiro da Silva
  
 ## Project Objectives
 
