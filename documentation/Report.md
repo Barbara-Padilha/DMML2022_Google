@@ -385,5 +385,5 @@ With all of our codes completed and after analyzing our results, the last thing 
 After recording the video and doing the necessary editing, it was posted as an unlisted video on YouTube so it can only be accessed by the correct link, given in this text and below:
 
 <div align="center">
-  <a href="https://www.youtube.com/watch?v=lD3s3jsw3pc"><img src="https://img.youtube.com/vi/lD3s3jsw3pc/0.jpg" alt="we found a message... | Raft"></a>
+  <a href="https://www.youtube.com/watch?v=FxyRRnbC9nk"><img src="https://img.youtube.com/vi/FxyRRnbC9nk/0.jpg" alt="Classification models for non-native French speakers according to CERR"></a>
 </div>
