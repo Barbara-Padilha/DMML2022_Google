@@ -251,8 +251,10 @@ Once the prediction is made on our `x_test` we obtain the predicted values of `y
 
 ### Neural Networks
 
-For the proposed new model, we thought i would be intresting to evaluate how a neural network would perform on such text classification task, with the addition of a word better text embeding system. The famous package TensowFlow was used due to it`s more high level code usabillity, which allows the user to create the architecture of the neural netowork and train the model more easily.
-Instead of the TFIDF vectorization, it was used a multilingual word transformer from Google, which converts each sentence into a vector composed of 512 values, as seen on the example below:
+For the proposed new model, we thought i would be intresting to evaluate how a neural network would perform on such text classification task, with the addition of a word better text embedding system. The famous package `TensowFlow` was used due to it`s more high level code usabillity, which allows the user to create the architecture of the neural netowork and train the model more easily.
+
+Additionally, instead of using the `TFiIDF Vectorizer`, we used a multilingual word transformer from Google, which converts each sentence into a vector composed of 512 values, as seen on the example below:
+
 ```ruby
 embed_1(["bounjour","je suis Victor"])
 
@@ -265,7 +267,7 @@ array([[ 0.15410367,  0.02259256, -0.0677164 , ...,  0.04396354,
 
 ```
 
-For the data processing, it was necessary to encode the variables into number, so we used the scikitlearn OrdinalEncoder class and obtained the numerical equivalents of the CEFR on numbers ranging from 0 to 5. 
+For the data processing, it was necessary to encode the variables into number, so we used the scikitlearn `OrdinalEncoder` class and obtained the numerical equivalents of the CEFR on numbers ranging from 0 to 5. 
 
 ```ruby
 oe = OrdinalEncoder()
