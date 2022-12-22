@@ -384,7 +384,6 @@ With all of our codes completed and after analyzing our results, the last thing 
 
 After recording the video and doing the necessary editing, it was posted as an unlisted video on YouTube so it can only be accessed by the correct link, given in this text and below:
 
-##### TEST CHANGE VIDEO LATER
 <div align="center">
   <a href="https://www.youtube.com/watch?v=lD3s3jsw3pc"><img src="https://img.youtube.com/vi/lD3s3jsw3pc/0.jpg" alt="we found a message... | Raft"></a>
 </div>
